@@ -41,6 +41,12 @@ body {
   }
 }
 
+@media (max-width: 1200px) {
+  html {
+    font-size: 69%;
+  }
+}
+
 /* GENERAL ELEMENTS */
 .section {
   padding: 15rem 3rem;
