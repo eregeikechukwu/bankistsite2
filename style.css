@@ -170,6 +170,8 @@ img {
 
 /* nav and stickly class at the same time */
 .nav.sticky {
+  gap: calc(50%);
+
   position: fixed;
   background-color: rgba(255, 255, 255, 0.95);
 }
