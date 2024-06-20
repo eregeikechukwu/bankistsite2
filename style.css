@@ -35,15 +35,28 @@ body {
   background-color: #f3f3f3;
 }
 
-@media (min-width: 300px) {
+/* @media (max-width: 450px) {
   html {
     font-size: 45%;
   }
 }
 
-@media (max-width: 1200px) {
+*/
+@media (max-width: 450px) {
   html {
-    font-size: 69%;
+    font-size: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media (max-width: 1500px) {
+  html {
+    /* font-size: ; */
   }
 }
 

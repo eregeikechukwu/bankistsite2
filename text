@@ -10,31 +10,23 @@
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="style.css" />
-    <title>DEMO: Bankist | When Banking meets Minimalist</title>
-    <!-- LEC 23 -->
-    <!-- Page shows before beofre scripts are executed, that's why styles coming from script only apply later -->
+    <link rel="stylesheet" href="main.css" />
+    <title>Bankist | When Banking meets Minimalist</title>
+
     <script defer src="script2.js"></script>
     <script defer src="script3.js"></script>
-    <!-- <script async src="script.js"></script> -->
-
-    <script>
-      // document.addEventListener('DOMContentLoaded', () => alert('DOM ready!')); // (2)
-    </script>
   </head>
   <body>
     <header class="header">
       <nav class="nav">
-        <!-- my-name, data-author, and data-logo-color only LATER!!! -->
         <img
           src="img/logo.png"
           alt="Bankist logo"
           class="nav__logo"
           id="logo"
-          instructor="Jonas"
-          data-author="Jonas Schmedtmann"
-          data-logo-color="dark"
+          designer="Nelson"
+          data-version-number="3.0"
         />
         <ul class="nav__links">
           <li class="nav__item">
@@ -57,6 +49,11 @@
             >
           </li>
         </ul>
+
+        <!-- <label for="navi-toggle" class="menu__button">
+          <i class="menu__icon"></i>
+        </label> -->
+
         <div class="menu">
           <input type="checkbox" class="menu__checkbox" id="navi-toggle" />
           <label for="navi-toggle" class="menu__button">
@@ -92,6 +89,7 @@
       </nav>
 
       <div class="header__title">
+        <!-- <h1 onclick="alert('HTML alert')"> -->
         <h1>
           When
           <!-- Green highlight effect -->
@@ -101,7 +99,6 @@
         </h1>
         <h4>A simpler banking experience for a simpler life.</h4>
         <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
-        <!-- Originally only src="img/hero.png" -->
         <img
           src="img/hero.png"
           class="header__img"
@@ -189,7 +186,6 @@
         </h3>
       </div>
 
-      <!-- REMOVE CLASSES NECESSARY IN JS, ADD THEM IN VIDEO -->
       <div class="operations">
         <div class="operations__tab-container">
           <button
@@ -268,7 +264,7 @@
       </div>
 
       <div class="slider">
-        <div class="slide slide--1">
+        <div class="slide">
           <div class="testimonial">
             <h5 class="testimonial__header">Best financial decision ever!</h5>
             <blockquote class="testimonial__text">
@@ -287,7 +283,7 @@
           </div>
         </div>
 
-        <div class="slide slide--2">
+        <div class="slide">
           <div class="testimonial">
             <h5 class="testimonial__header">
               The last step to becoming a complete minimalist
@@ -307,7 +303,7 @@
           </div>
         </div>
 
-        <div class="slide slide--3">
+        <div class="slide">
           <div class="testimonial">
             <h5 class="testimonial__header">
               Finally free from old-school banks
@@ -328,11 +324,6 @@
           </div>
         </div>
 
-        <!-- We build this slider with images, but inside each slide, there can be ANY HTML, it doesn't have to be just an image! -->
-        <!-- <div class="slide"><img src="img/img-1.jpg" alt="Photo 1" /></div>
-        <div class="slide"><img src="img/img-2.jpg" alt="Photo 2" /></div>
-        <div class="slide"><img src="img/img-3.jpg" alt="Photo 3" /></div>
-        <div class="slide"><img src="img/img-4.jpg" alt="Photo 4" /></div> -->
         <button class="slider__btn slider__btn--left">&larr;</button>
         <button class="slider__btn slider__btn--right">&rarr;</button>
         <div class="dots"></div>
