@@ -49,8 +49,19 @@ const account2 = {
   locale: 'en-US',
 };
 
-const accounts = [account1, account2];
+// export const yes = [4, 5, 6, 33];
 
+// export const accounts = [account1, account2];
+// export const accounts = [account1, account2];
+
+const accounts = JSON.parse(localStorage.getItem('accounts')) || [
+  account1,
+  account2,
+];
+
+localStorage.setItem('accounts', JSON.stringify(accounts));
+
+console.log(accounts);
 /////////////////////////////////////////////////
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -186,7 +197,7 @@ const startLogoutTimer = function () {
   const tick = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
     const sec = String(time % 60).padStart(2, 0);
-    console.log(sec);
+    // console.log(sec);
 
     //In each call, print the remaining time to UI
     labelTimer.textContent = min + ':' + sec;
@@ -205,7 +216,7 @@ const startLogoutTimer = function () {
   };
 
   //Set time to five minutes
-  let time = 120;
+  let time = 300;
 
   //Call the timer every second
   const timer = setInterval(tick, 1000);

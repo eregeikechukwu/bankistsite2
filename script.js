@@ -68,7 +68,9 @@ btnScrollTo.addEventListener('click', function (e) {
   //   behavior: 'smooth',
   // });
 
-  section1.scrollIntoView({ behavior: 'smooth' });
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
 });
 
 ///////////////////////////////////////
@@ -92,7 +94,10 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   // Matching strategy
   if (e.target.classList.contains('nav__link')) {
     const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    console.log(id);
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
   }
 });
 
@@ -114,7 +119,11 @@ tabsContainer.addEventListener('click', function (e) {
 
   // Activate content area
   document
-    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .querySelector(
+      `.operations__content--${clicked.dataset.tab}
+
+      `
+    )
     .classList.add('operations__content--active');
 });
 
@@ -222,7 +231,7 @@ const createDots = () => {
   slides.forEach((s, i) => {
     dotContainer.insertAdjacentHTML(
       'beforeend',
-      `<button class="dots__dot" data-slide="${i}"></button>`
+      `<button class="dots__dot"data-slide="${i}"></button>`
     );
   });
 };
@@ -247,6 +256,7 @@ const prevSlide = () => {
   } else {
     curSlide--;
   }
+
   goToSlide(curSlide);
   activateDot(curSlide);
 };
@@ -257,6 +267,7 @@ const nextSlide = () => {
   } else {
     curSlide++;
   }
+
   goToSlide(curSlide);
   activateDot(curSlide);
 };
@@ -293,6 +304,7 @@ const init = () => {
   createDots();
   activateDot(0);
 };
+
 init();
 
 /////////////////////////////////////////////
@@ -326,10 +338,13 @@ const navAnime = function () {
   navContent.forEach((element, index) => {
     element.classList.remove('visible');
 
-    setTimeout(() => {
-      console.log(index + 'yeah');
-      element.classList.add('visible');
-    }, (index + 1) * 200);
+    setTimeout(
+      () => {
+        element.classList.add('visible');
+      },
+
+      (index + 1) * 200
+    );
   });
 };
 
@@ -339,6 +354,132 @@ mCheckbox.addEventListener('change', event => {
     console.log('i am clicked');
   }
 });
+// import { accounts } from './script2.js';
+
+const form = document.querySelector('.modal__form');
+
+const fName = document.querySelector('.fName');
+
+const lName = document.querySelector('.lName');
+const eMail = document.querySelector('.eMail');
+const Ipin = document.querySelector('.Ipin');
+
+// console.log(accounts);
+
+const formI = function (Ipin) {
+  // event.preventDefault();
+  console.log('gchgch');
+
+  if (!Ipin) return false;
+
+  if (eMail.value) {
+    if (!eMail.checkValidity()) {
+      // event.preventDefault();
+      console.log('Its wrong');
+      eMail.classList.add('form-invalid');
+      document.querySelector('.emL').style.color = 'red';
+      return false;
+    } else {
+      console.log('Correct');
+      eMail.classList.remove('form-invalid');
+      document.querySelector('.emL').style.color = 'black';
+      return true;
+
+      // if (condition) {
+      // } else {
+      // }
+    }
+  }
+};
+
+const accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+let accDAte;
+
+accDAte = new Date().toISOString();
+console.log(typeof accDAte);
+
+class accCreate {
+  constructor(firstName, lastName, pin) {
+    this.owner = `${firstName} ${lastName}`;
+    this.movements = [10];
+    this.interestRate = 1.5;
+    this.pin = +pin;
+    this.movementsDates = [accDAte];
+    this.currency = 'USD';
+    this.locale = navigator.language;
+  }
+}
+
+const formValid = function () {
+  const lNameV = lName.value;
+  const pinV = Number(Ipin.value);
+  const fNameV = fName.value;
+
+  console.log(formI(pinV));
+  console.log(pinV);
+  console.log(fNameV);
+  console.log('xusduwsfwfu');
+
+  //FOrm validation
+  if (formI(pinV)) {
+    form.reset();
+    console.log('bffjhcfejvc');
+    closeModal();
+    const newAcc = new accCreate(fNameV, lNameV, pinV);
+
+    //Add account creation date
+    accDAte = new Date().toISOString();
+
+    //Update ACcounts
+    accounts.push(newAcc);
+
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+    console.log(newAcc);
+
+    setTimeout(function () {
+      alert('Account created succesfully');
+    }, 2000);
+  }
+};
+console.log(accounts);
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  formValid();
+
+  console.log(accounts);
+});
+
+Ipin.addEventListener('input', function () {
+  Ipin.value = Ipin.value.replace(/\D/g, '');
+});
+
+// const account2 = {
+//   owner: 'Jessica Davis',
+//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//   interestRate: 1.5,
+//   pin: 2222,
+
+//   movementsDates: [
+//     '2019-11-01T13:15:33.035Z',
+//     '2019-11-30T09:48:16.867Z',
+//     '2019-12-25T06:04:23.907Z',
+//     '2020-01-25T14:18:46.235Z',
+//     '2020-02-05T16:33:06.386Z',
+//     '2020-05-10T14:43:26.374Z',
+//     '2024-05-21T18:49:59.371Z',
+//     '2024-05-23T12:01:20.894Z',
+//   ],
+//   currency: 'USD',
+//   locale: 'en-US',
+// };
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   Ipin.addEventListener('input', event => {
+//     Ipin.value = Ipin.value.replace(/\D/g, '');
+//   });
+// });
 
 ///////////////////////////////////////
 ///////////////////////////////////////

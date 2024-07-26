@@ -502,6 +502,7 @@ h4 {
   position: absolute;
   top: 50%;
   z-index: 10;
+  cursor: pointer;
 
   border: none;
   background: rgba(255, 255, 255, 0.7);
@@ -511,7 +512,6 @@ h4 {
   height: 5.5rem;
   width: 5.5rem;
   font-size: 3.25rem;
-  cursor: pointer;
 }
 
 .slider__btn--left {

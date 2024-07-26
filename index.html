@@ -15,8 +15,7 @@
     <title>DEMO: Bankist | When Banking meets Minimalist</title>
     <!-- LEC 23 -->
     <!-- Page shows before beofre scripts are executed, that's why styles coming from script only apply later -->
-    <script defer src="script2.js"></script>
-    <script defer src="script3.js"></script>
+
     <!-- <script async src="script.js"></script> -->
 
     <script>
@@ -394,18 +393,26 @@
       </h2>
       <form class="modal__form">
         <label>First Name</label>
-        <input type="text" class="fName" />
+        <input type="text" class="fName" required />
         <label>Last Name</label>
-        <input type="text" class="lName" />
-        <label>Email Address</label>
-        <input type="email" />
+        <input type="text" class="lName" pattern="[A-Za-z]+" required />
+        <label class="emL">Email Address</label>
+        <input type="email" class="eMail" required />
         <label>Pin</label>
-        <input type="password" class="Ipin" />
+        <input
+          type="password"
+          class="Ipin"
+          maxlength="4"
+          inputmode="numeric"
+          pattern="\d*"
+          required
+        />
         <button class="btn fBtn">Next step &rarr;</button>
       </form>
     </div>
     <div class="overlay hidden"></div>
 
     <!-- <script src="script.js"></script> -->
+    <script type="module" src="script.js"></script>
   </body>
 </html>
